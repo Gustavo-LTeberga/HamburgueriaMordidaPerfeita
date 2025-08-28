@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace HamburgueriaMordidaPerfeita {
     public partial class InitialMenu : Form {
-        public InitialMenu() {
+
+        Model.Users users = new Model.Users();
+
+
+        public InitialMenu(Model.Users usuario) {
             InitializeComponent();
+            this.users = usuario;
+            lblDesc.Text = $"Ola {usuario.NomeCompleto}";
         }
     }
 }

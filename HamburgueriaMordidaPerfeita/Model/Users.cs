@@ -25,8 +25,11 @@ namespace HamburgueriaMordidaPerfeita.Model {
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
 
+            //hash
+            String passwordhash = EasyEncryption.SHA.ComputeSHA256Hash(Senha);
+
             cmd.Parameters.AddWithValue("@email", Email);
-            cmd.Parameters.AddWithValue("@senha", Senha);
+            cmd.Parameters.AddWithValue("@senha", passwordhash);
 
             cmd.Prepare();
             // Declarar tabela que irá receber o resultado:

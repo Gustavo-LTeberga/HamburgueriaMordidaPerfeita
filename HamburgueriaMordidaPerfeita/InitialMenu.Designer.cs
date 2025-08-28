@@ -30,6 +30,7 @@
             this.btnCheckout = new System.Windows.Forms.Button();
             this.btnUsers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDesc = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,7 +38,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Futura Md BT", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(29, 29);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(260, 39);
             this.lblTitle.TabIndex = 0;
@@ -45,7 +46,7 @@
             // 
             // btnOrders
             // 
-            this.btnOrders.Location = new System.Drawing.Point(36, 80);
+            this.btnOrders.Location = new System.Drawing.Point(36, 102);
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(253, 58);
             this.btnOrders.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btnProduct
             // 
-            this.btnProduct.Location = new System.Drawing.Point(36, 144);
+            this.btnProduct.Location = new System.Drawing.Point(36, 166);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(253, 58);
             this.btnProduct.TabIndex = 2;
@@ -63,7 +64,7 @@
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(36, 208);
+            this.btnCheckout.Location = new System.Drawing.Point(36, 230);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(253, 58);
             this.btnCheckout.TabIndex = 3;
@@ -72,7 +73,7 @@
             // 
             // btnUsers
             // 
-            this.btnUsers.Location = new System.Drawing.Point(36, 272);
+            this.btnUsers.Location = new System.Drawing.Point(36, 294);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(253, 58);
             this.btnUsers.TabIndex = 4;
@@ -82,12 +83,20 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HamburgueriaMordidaPerfeita.Properties.Resources.LogoIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(348, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(349, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(301, 301);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(43, 67);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(0, 32);
+            this.lblDesc.TabIndex = 6;
             // 
             // InitialMenu
             // 
@@ -95,6 +104,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(225)))), ((int)(((byte)(173)))));
             this.ClientSize = new System.Drawing.Size(697, 375);
+            this.Controls.Add(this.lblDesc);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUsers);
             this.Controls.Add(this.btnCheckout);
@@ -124,5 +134,6 @@
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblDesc;
     }
 }
