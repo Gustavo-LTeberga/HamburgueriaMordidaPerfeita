@@ -19,5 +19,10 @@ namespace HamburgueriaMordidaPerfeita {
             this.users = usuario;
             lblDesc.Text = $"Ola {usuario.NomeCompleto}";
         }
+
+        private void btnUsers_Click(object sender, EventArgs e) {
+            FormUsers formusers = new FormUsers(users);
+            formusers.ShowDialog();
+        }
     }
 }
