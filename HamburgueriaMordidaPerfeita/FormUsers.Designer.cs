@@ -26,16 +26,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsers));
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.grbApagar = new System.Windows.Forms.GroupBox();
-            this.lblApagar = new System.Windows.Forms.Label();
             this.btnApagar = new System.Windows.Forms.Button();
+            this.lblApagar = new System.Windows.Forms.Label();
             this.grbCadastro = new System.Windows.Forms.GroupBox();
-            this.lblNomeCompletoCadastro = new System.Windows.Forms.Label();
-            this.txbNomeCompletoCadastro = new System.Windows.Forms.TextBox();
-            this.txbEmailCadastro = new System.Windows.Forms.TextBox();
-            this.lblEmailCadastro = new System.Windows.Forms.Label();
+            this.brnCadastrar = new System.Windows.Forms.Button();
             this.txbSenhaCadastro = new System.Windows.Forms.TextBox();
             this.lblSenhaCadastro = new System.Windows.Forms.Label();
-            this.brnCadastrar = new System.Windows.Forms.Button();
+            this.txbEmailCadastro = new System.Windows.Forms.TextBox();
+            this.lblEmailCadastro = new System.Windows.Forms.Label();
+            this.txbNomeCompletoCadastro = new System.Windows.Forms.TextBox();
+            this.lblNomeCompletoCadastro = new System.Windows.Forms.Label();
             this.grbEditar = new System.Windows.Forms.GroupBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txbSenhaEditar = new System.Windows.Forms.TextBox();
@@ -58,33 +58,25 @@
             this.dgvUsers.AllowUserToResizeRows = false;
             this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Enabled = false;
             this.dgvUsers.Location = new System.Drawing.Point(12, 12);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.Size = new System.Drawing.Size(585, 200);
             this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellClick);
             // 
             // grbApagar
             // 
             this.grbApagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(225)))), ((int)(((byte)(173)))));
             this.grbApagar.Controls.Add(this.btnApagar);
             this.grbApagar.Controls.Add(this.lblApagar);
+            this.grbApagar.Enabled = false;
             this.grbApagar.Location = new System.Drawing.Point(12, 388);
             this.grbApagar.Name = "grbApagar";
             this.grbApagar.Size = new System.Drawing.Size(585, 60);
             this.grbApagar.TabIndex = 1;
             this.grbApagar.TabStop = false;
             this.grbApagar.Text = "Apagar";
-            // 
-            // lblApagar
-            // 
-            this.lblApagar.AutoSize = true;
-            this.lblApagar.Location = new System.Drawing.Point(20, 26);
-            this.lblApagar.Name = "lblApagar";
-            this.lblApagar.Size = new System.Drawing.Size(160, 13);
-            this.lblApagar.TabIndex = 0;
-            this.lblApagar.Text = "Selecione o usuário para apagar";
             // 
             // btnApagar
             // 
@@ -97,6 +89,16 @@
             this.btnApagar.TabIndex = 1;
             this.btnApagar.Text = "APAGAR";
             this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            // 
+            // lblApagar
+            // 
+            this.lblApagar.AutoSize = true;
+            this.lblApagar.Location = new System.Drawing.Point(20, 26);
+            this.lblApagar.Name = "lblApagar";
+            this.lblApagar.Size = new System.Drawing.Size(160, 13);
+            this.lblApagar.TabIndex = 0;
+            this.lblApagar.Text = "Selecione o usuário para apagar";
             // 
             // grbCadastro
             // 
@@ -115,37 +117,15 @@
             this.grbCadastro.TabStop = false;
             this.grbCadastro.Text = "Cadastro";
             // 
-            // lblNomeCompletoCadastro
+            // brnCadastrar
             // 
-            this.lblNomeCompletoCadastro.AutoSize = true;
-            this.lblNomeCompletoCadastro.Location = new System.Drawing.Point(8, 22);
-            this.lblNomeCompletoCadastro.Name = "lblNomeCompletoCadastro";
-            this.lblNomeCompletoCadastro.Size = new System.Drawing.Size(85, 13);
-            this.lblNomeCompletoCadastro.TabIndex = 0;
-            this.lblNomeCompletoCadastro.Text = "Nome Completo:";
-            // 
-            // txbNomeCompletoCadastro
-            // 
-            this.txbNomeCompletoCadastro.Location = new System.Drawing.Point(98, 19);
-            this.txbNomeCompletoCadastro.Name = "txbNomeCompletoCadastro";
-            this.txbNomeCompletoCadastro.Size = new System.Drawing.Size(139, 20);
-            this.txbNomeCompletoCadastro.TabIndex = 1;
-            // 
-            // txbEmailCadastro
-            // 
-            this.txbEmailCadastro.Location = new System.Drawing.Point(98, 46);
-            this.txbEmailCadastro.Name = "txbEmailCadastro";
-            this.txbEmailCadastro.Size = new System.Drawing.Size(139, 20);
-            this.txbEmailCadastro.TabIndex = 3;
-            // 
-            // lblEmailCadastro
-            // 
-            this.lblEmailCadastro.AutoSize = true;
-            this.lblEmailCadastro.Location = new System.Drawing.Point(57, 49);
-            this.lblEmailCadastro.Name = "lblEmailCadastro";
-            this.lblEmailCadastro.Size = new System.Drawing.Size(35, 13);
-            this.lblEmailCadastro.TabIndex = 2;
-            this.lblEmailCadastro.Text = "Email:";
+            this.brnCadastrar.Location = new System.Drawing.Point(20, 99);
+            this.brnCadastrar.Name = "brnCadastrar";
+            this.brnCadastrar.Size = new System.Drawing.Size(206, 33);
+            this.brnCadastrar.TabIndex = 6;
+            this.brnCadastrar.Text = "Cadastrar";
+            this.brnCadastrar.UseVisualStyleBackColor = true;
+            this.brnCadastrar.Click += new System.EventHandler(this.brnCadastrar_Click);
             // 
             // txbSenhaCadastro
             // 
@@ -163,15 +143,37 @@
             this.lblSenhaCadastro.TabIndex = 4;
             this.lblSenhaCadastro.Text = "Senha:";
             // 
-            // brnCadastrar
+            // txbEmailCadastro
             // 
-            this.brnCadastrar.Location = new System.Drawing.Point(20, 99);
-            this.brnCadastrar.Name = "brnCadastrar";
-            this.brnCadastrar.Size = new System.Drawing.Size(206, 33);
-            this.brnCadastrar.TabIndex = 6;
-            this.brnCadastrar.Text = "Cadastrar";
-            this.brnCadastrar.UseVisualStyleBackColor = true;
-            this.brnCadastrar.Click += new System.EventHandler(this.brnCadastrar_Click);
+            this.txbEmailCadastro.Location = new System.Drawing.Point(98, 46);
+            this.txbEmailCadastro.Name = "txbEmailCadastro";
+            this.txbEmailCadastro.Size = new System.Drawing.Size(139, 20);
+            this.txbEmailCadastro.TabIndex = 3;
+            // 
+            // lblEmailCadastro
+            // 
+            this.lblEmailCadastro.AutoSize = true;
+            this.lblEmailCadastro.Location = new System.Drawing.Point(57, 49);
+            this.lblEmailCadastro.Name = "lblEmailCadastro";
+            this.lblEmailCadastro.Size = new System.Drawing.Size(35, 13);
+            this.lblEmailCadastro.TabIndex = 2;
+            this.lblEmailCadastro.Text = "Email:";
+            // 
+            // txbNomeCompletoCadastro
+            // 
+            this.txbNomeCompletoCadastro.Location = new System.Drawing.Point(98, 19);
+            this.txbNomeCompletoCadastro.Name = "txbNomeCompletoCadastro";
+            this.txbNomeCompletoCadastro.Size = new System.Drawing.Size(139, 20);
+            this.txbNomeCompletoCadastro.TabIndex = 1;
+            // 
+            // lblNomeCompletoCadastro
+            // 
+            this.lblNomeCompletoCadastro.AutoSize = true;
+            this.lblNomeCompletoCadastro.Location = new System.Drawing.Point(8, 22);
+            this.lblNomeCompletoCadastro.Name = "lblNomeCompletoCadastro";
+            this.lblNomeCompletoCadastro.Size = new System.Drawing.Size(85, 13);
+            this.lblNomeCompletoCadastro.TabIndex = 0;
+            this.lblNomeCompletoCadastro.Text = "Nome Completo:";
             // 
             // grbEditar
             // 
@@ -183,6 +185,7 @@
             this.grbEditar.Controls.Add(this.lblEmailEditar);
             this.grbEditar.Controls.Add(this.txbNomeCompletoEditar);
             this.grbEditar.Controls.Add(this.lblNomeCompletoEditar);
+            this.grbEditar.Enabled = false;
             this.grbEditar.ForeColor = System.Drawing.Color.Black;
             this.grbEditar.Location = new System.Drawing.Point(334, 230);
             this.grbEditar.Name = "grbEditar";
@@ -199,6 +202,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txbSenhaEditar
             // 

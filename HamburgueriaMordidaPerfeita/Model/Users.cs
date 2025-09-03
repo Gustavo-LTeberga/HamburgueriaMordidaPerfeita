@@ -57,6 +57,7 @@ namespace HamburgueriaMordidaPerfeita.Model {
         }
 
         public bool Cadastrar() {
+
             string comand = "INSERT INTO usuarios (nome_completo, email, senha) VALUES " + "(@nome_completo, @email, @senha)";
             DataBase conexaoBD = new DataBase();
 
@@ -110,6 +111,98 @@ namespace HamburgueriaMordidaPerfeita.Model {
 
         }
 
+        public bool Apagar() {
 
+            string comand = "DELETE FROM usuarios WHERE id = @id";
+            DataBase conexaoBD = new DataBase();
+
+            MySqlConnection con = conexaoBD.ObterConexao();
+
+            MySqlCommand cmd = new MySqlCommand(comand, con);
+
+            cmd.Parameters.AddWithValue("@id", Id);
+
+            cmd.Prepare();
+
+            try {
+
+                if (cmd.ExecuteNonQuery() == 0) {
+
+                    conexaoBD.Desconectar(con);
+
+                    return false;
+
+                }
+
+                else {
+
+                    conexaoBD.Desconectar(con);
+
+                    return true;
+
+                }
+
+            }
+
+            catch {
+
+                conexaoBD.Desconectar(con);
+
+                return false;
+
+            }
+
+        }
+
+        public bool Modificar() {
+
+            string comand = "UPDATE usuarios SET nome_completo = @nome_completo, " + "email = @email, senha = @senha WHERE id = @id";
+            DataBase conexaoBD = new DataBase();
+
+            MySqlConnection con = conexaoBD.ObterConexao();
+
+            MySqlCommand cmd = new MySqlCommand(comand, con);
+
+            cmd.Parameters.AddWithValue("@id", Id);
+            cmd.Parameters.AddWithValue("@nome_completo", NomeCompleto);
+            cmd.Parameters.AddWithValue("@email", Email);
+
+            string passwordhash = EasyEncryption.SHA.ComputeSHA256Hash(Senha);
+
+            cmd.Parameters.AddWithValue("@senha", passwordhash);
+
+           
+
+            cmd.Prepare();
+
+            try {
+
+                if (cmd.ExecuteNonQuery() == 0) {
+
+                    conexaoBD.Desconectar(con);
+
+                    return false;
+
+                }
+
+                else {
+
+                    conexaoBD.Desconectar(con);
+
+                    return true;
+
+                }
+
+            }
+
+            catch {
+
+                conexaoBD.Desconectar(con);
+
+                return false;
+
+            }
+
+        }
     }
 }
