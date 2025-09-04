@@ -52,6 +52,7 @@
             this.btnOrders.TabIndex = 1;
             this.btnOrders.Text = "Comandas";
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // btnProduct
             // 
@@ -61,6 +62,7 @@
             this.btnProduct.TabIndex = 2;
             this.btnProduct.Text = "Produtos";
             this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnCheckout
             // 
@@ -70,6 +72,7 @@
             this.btnCheckout.TabIndex = 3;
             this.btnCheckout.Text = "Caixa";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // btnUsers
             // 

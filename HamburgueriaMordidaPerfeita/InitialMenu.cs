@@ -24,5 +24,20 @@ namespace HamburgueriaMordidaPerfeita {
             FormUsers formusers = new FormUsers(users);
             formusers.ShowDialog();
         }
+
+        private void btnOrders_Click(object sender, EventArgs e) {
+            OrderSlips orderslip = new OrderSlips(users);
+            orderslip.ShowDialog();
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e) {
+            FormProducts formproducts = new FormProducts(users);    
+            formproducts.ShowDialog();
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e) {
+            Cash cash = new Cash(users);
+            cash.ShowDialog();
+        }
     }
 }

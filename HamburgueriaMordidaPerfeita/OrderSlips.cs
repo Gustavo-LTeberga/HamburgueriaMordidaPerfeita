@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace HamburgueriaMordidaPerfeita {
     public partial class OrderSlips : Form {
-        public OrderSlips() {
+
+        Model.Users users;
+        public OrderSlips(Model.Users users) {
             InitializeComponent();
+            this.users = users;
         }
     }
 }

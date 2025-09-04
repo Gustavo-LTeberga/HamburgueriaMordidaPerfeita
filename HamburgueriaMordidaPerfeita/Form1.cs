@@ -26,7 +26,7 @@ namespace HamburgueriaMordidaPerfeita {
             else {
                 Model.Users usuario = new Model.Users();  
 
-                usuario.Email = txbEmail.Text;
+                usuario.Email = txbEmail.Text.ToLower();
                 usuario.Senha = txbPassword.Text;
 
                 DataTable result = usuario.Logar();

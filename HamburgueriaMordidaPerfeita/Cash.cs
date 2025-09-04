@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace HamburgueriaMordidaPerfeita {
     public partial class Cash : Form {
-        public Cash() {
+
+        Model.Users users;
+        public Cash(Model.Users users) {
             InitializeComponent();
+            this.users = users;
         }
     }
 }

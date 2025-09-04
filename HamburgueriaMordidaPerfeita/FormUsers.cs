@@ -41,7 +41,7 @@ namespace HamburgueriaMordidaPerfeita {
                 Model.Users registeredUser = new Model.Users();
 
                 registeredUser.NomeCompleto = txbNomeCompletoCadastro.Text;
-                registeredUser.Email = txbEmailCadastro.Text;
+                registeredUser.Email = txbEmailCadastro.Text.ToLower();
                 registeredUser.Senha = txbSenhaCadastro.Text;
 
                 if (registeredUser.Cadastrar()) {
@@ -133,7 +133,7 @@ namespace HamburgueriaMordidaPerfeita {
 
                 editUsers.Id = selectedID;
                 editUsers.NomeCompleto = txbNomeCompletoEditar.Text;
-                editUsers.Email = txbEmailEditar.Text;
+                editUsers.Email = txbEmailEditar.Text.ToLower();
                 editUsers.Senha = txbSenhaEditar.Text;
 
                 if (editUsers.Modificar()) {

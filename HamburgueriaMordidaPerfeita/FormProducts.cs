@@ -10,8 +10,31 @@ using System.Windows.Forms;
 
 namespace HamburgueriaMordidaPerfeita {
     public partial class FormProducts : Form {
-        public FormProducts() {
+
+        Model.Users users;
+        public FormProducts (Model.Users users) {
             InitializeComponent();
+            this.users = users;
+            ListarCategoriaCmb();
         }
+
+        public void ListarCategoriaCmb() {
+            
+            Model.Category category = new Model.Category();
+
+            DataTable table = category.Listar();
+
+            foreach (DataRow dr in table.Rows) {
+
+                cmbCategoriaCadastro.Items.Add($"{dr["id"]} - {dr["nome"]}");
+                cmbcategoriaEditar.Items.Add($"{dr["id"]} - {dr["nome"]}");
+
+            }
+
+        }
+
     }
+
+   
+
 }
