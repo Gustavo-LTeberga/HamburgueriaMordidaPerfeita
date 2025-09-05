@@ -26,15 +26,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProducts));
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.grbCadastrar = new System.Windows.Forms.GroupBox();
-            this.lblNomeCadastro = new System.Windows.Forms.Label();
-            this.txbNomeCadastro = new System.Windows.Forms.TextBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.cmbCategoriaCadastro = new System.Windows.Forms.ComboBox();
+            this.lblCategoriaCadastro = new System.Windows.Forms.Label();
             this.txbPrecoCadastro = new System.Windows.Forms.TextBox();
             this.lblPrecoCadastro = new System.Windows.Forms.Label();
-            this.lblCategoriaCadastro = new System.Windows.Forms.Label();
-            this.cmbCategoriaCadastro = new System.Windows.Forms.ComboBox();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.txbNomeCadastro = new System.Windows.Forms.TextBox();
+            this.lblNomeCadastro = new System.Windows.Forms.Label();
             this.grbEditar = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.cmbcategoriaEditar = new System.Windows.Forms.ComboBox();
             this.lblCategoriaEditar = new System.Windows.Forms.Label();
             this.txbPrecoEditar = new System.Windows.Forms.TextBox();
@@ -52,12 +52,18 @@
             // 
             // dgvProdutos
             // 
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.AllowUserToResizeColumns = false;
+            this.dgvProdutos.AllowUserToResizeRows = false;
+            this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdutos.Location = new System.Drawing.Point(14, 12);
             this.dgvProdutos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.Size = new System.Drawing.Size(672, 200);
             this.dgvProdutos.TabIndex = 0;
+            this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
             // 
             // grbCadastrar
             // 
@@ -78,23 +84,36 @@
             this.grbCadastrar.TabStop = false;
             this.grbCadastrar.Text = "Cadastrar";
             // 
-            // lblNomeCadastro
+            // btnCadastrar
             // 
-            this.lblNomeCadastro.AutoSize = true;
-            this.lblNomeCadastro.Location = new System.Drawing.Point(7, 16);
-            this.lblNomeCadastro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNomeCadastro.Name = "lblNomeCadastro";
-            this.lblNomeCadastro.Size = new System.Drawing.Size(43, 13);
-            this.lblNomeCadastro.TabIndex = 0;
-            this.lblNomeCadastro.Text = "Nome:";
+            this.btnCadastrar.Location = new System.Drawing.Point(12, 93);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(274, 34);
+            this.btnCadastrar.TabIndex = 6;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // txbNomeCadastro
+            // cmbCategoriaCadastro
             // 
-            this.txbNomeCadastro.Location = new System.Drawing.Point(55, 13);
-            this.txbNomeCadastro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txbNomeCadastro.Name = "txbNomeCadastro";
-            this.txbNomeCadastro.Size = new System.Drawing.Size(231, 20);
-            this.txbNomeCadastro.TabIndex = 1;
+            this.cmbCategoriaCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriaCadastro.FormattingEnabled = true;
+            this.cmbCategoriaCadastro.Location = new System.Drawing.Point(76, 65);
+            this.cmbCategoriaCadastro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmbCategoriaCadastro.Name = "cmbCategoriaCadastro";
+            this.cmbCategoriaCadastro.Size = new System.Drawing.Size(210, 21);
+            this.cmbCategoriaCadastro.TabIndex = 5;
+            // 
+            // lblCategoriaCadastro
+            // 
+            this.lblCategoriaCadastro.AutoSize = true;
+            this.lblCategoriaCadastro.Location = new System.Drawing.Point(8, 68);
+            this.lblCategoriaCadastro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoriaCadastro.Name = "lblCategoriaCadastro";
+            this.lblCategoriaCadastro.Size = new System.Drawing.Size(65, 13);
+            this.lblCategoriaCadastro.TabIndex = 4;
+            this.lblCategoriaCadastro.Text = "Categoria:";
             // 
             // txbPrecoCadastro
             // 
@@ -114,40 +133,28 @@
             this.lblPrecoCadastro.TabIndex = 2;
             this.lblPrecoCadastro.Text = "Preço:";
             // 
-            // lblCategoriaCadastro
+            // txbNomeCadastro
             // 
-            this.lblCategoriaCadastro.AutoSize = true;
-            this.lblCategoriaCadastro.Location = new System.Drawing.Point(8, 68);
-            this.lblCategoriaCadastro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategoriaCadastro.Name = "lblCategoriaCadastro";
-            this.lblCategoriaCadastro.Size = new System.Drawing.Size(65, 13);
-            this.lblCategoriaCadastro.TabIndex = 4;
-            this.lblCategoriaCadastro.Text = "Categoria:";
+            this.txbNomeCadastro.Location = new System.Drawing.Point(55, 13);
+            this.txbNomeCadastro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txbNomeCadastro.Name = "txbNomeCadastro";
+            this.txbNomeCadastro.Size = new System.Drawing.Size(231, 20);
+            this.txbNomeCadastro.TabIndex = 1;
             // 
-            // cmbCategoriaCadastro
+            // lblNomeCadastro
             // 
-            this.cmbCategoriaCadastro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoriaCadastro.FormattingEnabled = true;
-            this.cmbCategoriaCadastro.Location = new System.Drawing.Point(76, 65);
-            this.cmbCategoriaCadastro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cmbCategoriaCadastro.Name = "cmbCategoriaCadastro";
-            this.cmbCategoriaCadastro.Size = new System.Drawing.Size(210, 21);
-            this.cmbCategoriaCadastro.TabIndex = 5;
-            // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.Location = new System.Drawing.Point(12, 93);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(274, 34);
-            this.btnCadastrar.TabIndex = 6;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.lblNomeCadastro.AutoSize = true;
+            this.lblNomeCadastro.Location = new System.Drawing.Point(7, 16);
+            this.lblNomeCadastro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomeCadastro.Name = "lblNomeCadastro";
+            this.lblNomeCadastro.Size = new System.Drawing.Size(43, 13);
+            this.lblNomeCadastro.TabIndex = 0;
+            this.lblNomeCadastro.Text = "Nome:";
             // 
             // grbEditar
             // 
             this.grbEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grbEditar.Controls.Add(this.button1);
+            this.grbEditar.Controls.Add(this.btnEditar);
             this.grbEditar.Controls.Add(this.cmbcategoriaEditar);
             this.grbEditar.Controls.Add(this.lblCategoriaEditar);
             this.grbEditar.Controls.Add(this.txbPrecoEditar);
@@ -163,15 +170,16 @@
             this.grbEditar.TabStop = false;
             this.grbEditar.Text = "Editar";
             // 
-            // button1
+            // btnEditar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 93);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(279, 34);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEditar.Location = new System.Drawing.Point(12, 93);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(279, 34);
+            this.btnEditar.TabIndex = 6;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // cmbcategoriaEditar
             // 
@@ -256,6 +264,7 @@
             this.btnApagar.TabIndex = 1;
             this.btnApagar.Text = "APAGAR";
             this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // lblApagar
             // 
@@ -309,7 +318,7 @@
         private System.Windows.Forms.ComboBox cmbCategoriaCadastro;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.GroupBox grbEditar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.ComboBox cmbcategoriaEditar;
         private System.Windows.Forms.Label lblCategoriaEditar;
         private System.Windows.Forms.TextBox txbPrecoEditar;

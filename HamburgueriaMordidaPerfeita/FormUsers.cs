@@ -103,9 +103,9 @@ namespace HamburgueriaMordidaPerfeita {
         public void ResetFields() {
 
             UpdateDgv();
-            txbNomeCompletoCadastro.Clear();
-            txbEmailCadastro.Clear();
-            txbSenhaCadastro.Clear();
+            txbNomeCompletoEditar.Clear();
+            txbEmailEditar.Clear();
+            txbSenhaEditar.Clear();
 
             selectedID = 0;
 
@@ -118,13 +118,13 @@ namespace HamburgueriaMordidaPerfeita {
 
         private void btnEditar_Click(object sender, EventArgs e) {
 
-            if (txbNomeCompletoCadastro.Text.Length < 5) {
+            if (txbNomeCompletoEditar.Text.Length < 5) {
                 MessageBox.Show("o nome deve ter no minimo 5 caracteres.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (txbEmailCadastro.Text.Length < 7) {
+            else if (txbEmailEditar.Text.Length < 7) {
                 MessageBox.Show("o nome deve ter no minimo 7 caracteres.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (txbSenhaCadastro.Text.Length < 6) {
+            else if (txbSenhaEditar.Text.Length < 6) {
                 MessageBox.Show("o nome deve ter no minimo 6 caracteres.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
